@@ -58,7 +58,7 @@ class Base64 {
     unsigned char a3[3];
     unsigned char a4[4];
 
-    size_t encoded_length = EncodedLength(input_length);
+    const size_t encoded_length = EncodedLength(input_length);
 
     if (out_length < encoded_length) return false;
 
@@ -151,7 +151,7 @@ class Base64 {
     unsigned char a3[3];
     unsigned char a4[4];
 
-    size_t decoded_length = DecodedLength(input, input_length);
+    const size_t decoded_length = DecodedLength(input, input_length);
 
     if (out_length < decoded_length) return false;
 
@@ -206,7 +206,7 @@ class Base64 {
 
   static size_t DecodedLength(const std::string &in) {
     int numEq = 0;
-    size_t n = in.size();
+    const size_t n = in.size();
 
     for (std::string::const_reverse_iterator it = in.rbegin(); *it == '='; ++it) {
       ++numEq;
